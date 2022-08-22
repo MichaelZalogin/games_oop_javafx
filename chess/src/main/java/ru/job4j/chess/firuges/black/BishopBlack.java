@@ -18,9 +18,12 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell dest) {
+        int deltaX = dest.getX() - dest.getY();
+        int deltaY = dest.getY() - dest.getX();
         Cell[] array = new Cell[0];
-        if (((dest.getX() - dest.getY()) == 1 && (dest.getY() - dest.getX()) == -1)
-                || ((dest.getX() - dest.getY()) == -1 && (dest.getY() - dest.getX()) == 1)) {
+        if ((deltaX == 1 && deltaY == -1) || (deltaX == -1 && deltaY == 1)) {
+            this.position.getY();
+            this.position.getX();
 //        boolean a = this.position == dest;
         } else {
             throw new ImpossibleMoveException(
