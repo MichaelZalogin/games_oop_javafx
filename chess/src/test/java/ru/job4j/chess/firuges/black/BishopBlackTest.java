@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class BishopBlackTest extends TestCase {
 
     @Test
-    public void testWhenChangePosition() {
+    public void whenChangePosition() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C8);
         Cell result = bishopBlack.position();
         Cell expected = Cell.C8;
@@ -19,14 +19,14 @@ public class BishopBlackTest extends TestCase {
     }
 
     @Test
-    public void testWhenCreateCopy() {
+    public void whenCreateCopy() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C8);
         Cell expected = Cell.A4;
         assertThat(expected).isEqualTo(bishopBlack.copy(Cell.A4).position());
     }
 
     @Test
-    public void testWhenWayIsCorrect() {
+    public void whenWayIsCorrect() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Cell[] result = bishopBlack.way(Cell.G5);
         Cell[] expected = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
@@ -34,21 +34,21 @@ public class BishopBlackTest extends TestCase {
     }
 
     @Test
-    public void testWhenIsDiagonal() {
+    public void whenIsDiagonal() {
         BishopBlack bishopBlack = new BishopBlack(Cell.A1);
         Cell point = Cell.H8;
         assertThat(bishopBlack.isDiagonal(bishopBlack.position(), point)).isTrue();
     }
 
     @Test
-    public void testWhenIsNotDiagonal() {
+    public void whenIsNotDiagonal() {
         BishopBlack bishopBlack = new BishopBlack(Cell.A7);
         Cell point = Cell.F3;
         assertThat(bishopBlack.isDiagonal(bishopBlack.position(), point)).isFalse();
     }
 
     @Test
-    public void testWhenWayIsNotCorrect() {
+    public void whenWayIsNotCorrect() {
         ImpossibleMoveException exception = assertThrows(
                 ImpossibleMoveException.class, () -> {
                     new BishopBlack(Cell.C1).way(Cell.C3);
